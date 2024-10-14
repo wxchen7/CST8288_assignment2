@@ -1,14 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package menu_building;
-import menus.*;
 
-/**
- *
- * @author gouraya
- */
+import menus.RestaurantMenu;
 
 public abstract class MenuBuilding {
 
@@ -19,5 +11,5 @@ public abstract class MenuBuilding {
         theMenu.populateMenu();
         return theMenu;
     }
-    
+
 }

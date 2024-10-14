@@ -16,6 +16,22 @@ public abstract class RestaurantMenu {
     private String name; // Menu name
     private String period; // Period during which the menu is active
 
+    public void setEntrees(List<Entree> entrees) {
+        this.entrees = entrees;
+    }
+
+    public void setMainCourses(List<MainCourse> mainCourses) {
+        this.mainCourses = mainCourses;
+    }
+
+    public void setDesserts(List<Dessert> desserts) {
+        this.desserts = desserts;
+    }
+
+    public void setDrinks(List<Drink> drinks) {
+        this.drinks = drinks;
+    }
+
     public String getName() {
         return this.name;
     }
