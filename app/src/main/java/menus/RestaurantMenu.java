@@ -1,57 +1,61 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package menus;
-import components.Dessert;
-import components.Drink;
-import components.MainCourse;
-import components.Entree;
 
-/**
- *
- * @author gouraya
- */
+import components.base.Dessert;
+import components.base.Drink;
+import components.base.Entree;
+import components.base.MainCourse;
+
+import java.util.List;
+
 public abstract class RestaurantMenu {
-    
+
+    protected List<Entree> entrees;
+    protected List<MainCourse> mainCourses;
+    protected List<Dessert> desserts;
+    protected List<Drink> drinks;
     private String name; // Menu name
     private String period; // Period during which the menu is active
-    
-    // Newly defined objects that represent the menu items.
-    protected Entree entree;
-    protected MainCourse mainCourse;
-    protected Dessert dessert;
-    protected Drink drink;
-    
-    
+
     public String getName() {
-        // Add the required code here
-        return null;
+        return this.name;
     }
-    
+
     public void setName(String name) {
-        // Add the required code here
-        
+        this.name = name;
     }
-    
+
     public String getPeriod() {
-        // Add the required code here
-        return null;
+        return this.period;
     }
-    
-    public void setPeriod(String p) {
-        // Add the required code here
+
+    public void setPeriod(String period) {
+        this.period = period;
     }
-    
+
     public abstract void populateMenu();
-    
-    // 
-    // Returns the menu contents
+
     @Override
     public String toString() {
-        // Add the required code here
-        return "";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Adding items to ").append(getName()).append("\n\n");
+        sb.append("The ").append(getName()).append("\n");
+        sb.append("Active: ").append(getPeriod()).append("\n\n");
+
+        appendMenuItems(sb, "Entrees", entrees);
+        appendMenuItems(sb, "Main Courses", mainCourses);
+        appendMenuItems(sb, "Desserts", desserts);
+        appendMenuItems(sb, "Drinks", drinks);
+
+        return sb.toString();
     }
-    
-    
+
+    private void appendMenuItems(StringBuilder sb, String category, List<?> items) {
+        sb.append(category).append(":\n");
+        if (items != null) {
+            for (Object item : items) {
+                sb.append(item.toString()).append("\n");
+            }
+        }
+        sb.append("\n");
+    }
 }
