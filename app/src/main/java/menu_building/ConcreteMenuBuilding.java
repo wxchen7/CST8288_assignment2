@@ -4,15 +4,26 @@ import menu_factory.*;
 import menus.*;
 
 /**
- * Concrete class representing a Spring restaurant menu.
- * This class extends RestaurantMenu and uses a RestaurantMenuFactory to populate its items.
+ * Concrete implementation of a restaurant menu builder.
+ * This class extends MenuBuilding and uses different RestaurantMenuFactory
+ * instances to create menus based on the specified season.
  */
 
 public class ConcreteMenuBuilding extends MenuBuilding {
 
+    /**
+     * Creates a RestaurantMenu based on the given season.
+     *
+     * @param season The season for which to create the menu.
+     * @return A RestaurantMenu instance corresponding to the specified season,
+     *         or null if an invalid season is provided.
+     */
+    
     @Override
     protected RestaurantMenu makeMenuBuilding(String season) {
         RestaurantMenu theMenu = null;
+        
+        // Create menu based on the season
         if ("Fall".equalsIgnoreCase(season)) {
             RestaurantMenuFactory theFactory = new FallRestaurantMenuFactory();
             theMenu = new FallRestaurantMenu(theFactory);
@@ -34,6 +45,7 @@ public class ConcreteMenuBuilding extends MenuBuilding {
             theMenu.setName("Summer Menu");
             theMenu.setPeriod("June 1 to August 31");
         }
+        
         return theMenu;
     }
 
