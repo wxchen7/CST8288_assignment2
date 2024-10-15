@@ -1,36 +1,23 @@
 package menus;
 
-import components.base.Dessert;
-import components.base.Drink;
-import components.base.Entree;
-import components.base.MainCourse;
+import components.base.*;
 
 import java.util.List;
 
+/**
+ * Abstract class representing a restaurant menu.
+ * This class provides the basic structure for different seasonal menus.
+ */
+
 public abstract class RestaurantMenu {
+
+    private String name; // Menu name
+    private String period; // Period during which the menu is active
 
     protected List<Entree> entrees;
     protected List<MainCourse> mainCourses;
     protected List<Dessert> desserts;
     protected List<Drink> drinks;
-    private String name; // Menu name
-    private String period; // Period during which the menu is active
-
-    public void setEntrees(List<Entree> entrees) {
-        this.entrees = entrees;
-    }
-
-    public void setMainCourses(List<MainCourse> mainCourses) {
-        this.mainCourses = mainCourses;
-    }
-
-    public void setDesserts(List<Dessert> desserts) {
-        this.desserts = desserts;
-    }
-
-    public void setDrinks(List<Drink> drinks) {
-        this.drinks = drinks;
-    }
 
     public String getName() {
         return this.name;
@@ -48,12 +35,13 @@ public abstract class RestaurantMenu {
         this.period = period;
     }
 
+    // Abstract method to be implemented by subclasses to populate the menu
     public abstract void populateMenu();
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Adding items to ").append(getName()).append("\n\n");
+        sb.append("Adding items to ").append(getName()).append("\n");
         sb.append("The ").append(getName()).append("\n");
         sb.append("Active: ").append(getPeriod()).append("\n\n");
 
@@ -68,8 +56,10 @@ public abstract class RestaurantMenu {
     private void appendMenuItems(StringBuilder sb, String category, List<?> items) {
         sb.append(category).append(":\n");
         if (items != null) {
-            for (Object item : items) {
-                sb.append(item.toString()).append("\n");
+            for (Object obj : items) {
+                if (obj instanceof MenuItem item) {
+                    sb.append("- ").append(item.getName()).append("\n");
+                }
             }
         }
         sb.append("\n");

@@ -4,49 +4,51 @@ import components.base.Dessert;
 import components.base.Drink;
 import components.base.Entree;
 import components.base.MainCourse;
-import components.fall.FallDessert;
-import components.fall.FallDrink;
-import components.fall.FallEntree;
-import components.fall.FallMainCourse;
+import components.fall.*;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Concrete factory for creating Fall menu items.
+ * This class implements the RestaurantMenuFactory interface to create specific Spring menu items.
+ */
 
 public class FallRestaurantMenuFactory implements RestaurantMenuFactory {
 
     @Override
     public List<Drink> createDrinks() {
-        return Arrays.asList(
-                new FallDrink("Margarita", 8.99),
-                new FallDrink("Dark Rum", 9.99),
-                new FallDrink("Orange Juice", 2.99)
-        );
+        List<Drink> drinks = new ArrayList<>();
+        drinks.add(new FallDrink("Margarita"));
+        drinks.add(new FallDrink("Dark Rum"));
+        drinks.add(new FallDrink("Orange"));
+        return drinks;
     }
 
     @Override
     public List<MainCourse> createMainCourses() {
-        return Arrays.asList(
-                new FallMainCourse("Salmon Avocado Toast", 14.99),
-                new FallMainCourse("Pesto Chicken Penne Asiago", 13.99),
-                new FallMainCourse("Portobello Mushroom Chicken", 15.99)
-        );
+        List<MainCourse> mainCourses = new ArrayList<>();
+        mainCourses.add( new FallMainCourse("Salmon Avocado Toast"));
+        mainCourses.add( new FallMainCourse("Pesto Chicken Penne Asiago"));
+        mainCourses.add( new FallMainCourse("Portobello Mushroom Chicken"));
+        return mainCourses;
     }
 
     @Override
     public List<Entree> createEntrees() {
-        return Arrays.asList(
-                new FallEntree("Spinach and Artichoke Dip", 8.99),
-                new FallEntree("Sesame Soy Tuna Tartare", 12.99),
-                new FallEntree("Tuscan Bruschetta", 13.99)
-        );
+        List<Entree> entrees = new ArrayList<>();
+        entrees.add( new FallEntree("Spinach and Artichoke Dip"));
+        entrees.add( new FallEntree("Sesame Soy Tuna Tartare"));
+        entrees.add( new FallEntree("Tuscan Bruschetta"));
+        return entrees;
     }
 
     @Override
     public List<Dessert> createDesserts() {
-        return Arrays.asList(
-                new FallDessert("Carrot Cake", 6.99),
-                new FallDessert("White Chocolate Cheesecake", 7.99),
-                new FallDessert("Apple Pie", 5.99)
-        );
+        List<Dessert> desserts = new ArrayList<>();
+        desserts.add( new FallDessert("Carrot Cake"));
+        desserts.add( new FallDessert("White Chocolate Cheesecake"));
+        desserts.add( new FallDessert("Apple Pie"));
+        return desserts;
     }
 }

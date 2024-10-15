@@ -4,49 +4,52 @@ import components.base.Dessert;
 import components.base.Drink;
 import components.base.Entree;
 import components.base.MainCourse;
-import components.winter.WinterDessert;
-import components.winter.WinterDrink;
-import components.winter.WinterEntree;
-import components.winter.WinterMainCourse;
+import components.winter.*;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Concrete factory for creating Winter menu items.
+ * This class implements the RestaurantMenuFactory interface to create specific Spring menu items.
+ */
 
 public class WinterRestaurantMenuFactory implements RestaurantMenuFactory {
 
     @Override
     public List<Drink> createDrinks() {
-        return Arrays.asList(
-                new WinterDrink("Hot Chocolate", 4.99),
-                new WinterDrink("Mulled Wine", 7.99),
-                new WinterDrink("Peppermint Mocha", 5.99)
-        );
+        List<Drink> drinks = new ArrayList<>();
+        drinks.add(new WinterDrink("Hot Chocolate"));
+        drinks.add(new WinterDrink("Mulled Wine"));
+        drinks.add(new WinterDrink("Peppermint Mocha"));
+        return drinks;
     }
 
     @Override
     public List<MainCourse> createMainCourses() {
-        return Arrays.asList(
-                new WinterMainCourse("Beef Stew", 17.99),
-                new WinterMainCourse("Roast Turkey with Stuffing", 22.99),
-                new WinterMainCourse("Vegetarian Lasagna", 16.99)
-        );
+        List<MainCourse> mainCourses = new ArrayList<>();
+        mainCourses.add(new WinterMainCourse("Beef Stew"));
+        mainCourses.add(new WinterMainCourse("Roast Turkey with Stuffing"));
+        mainCourses.add(new WinterMainCourse("Vegetarian Lasagna"));
+        return mainCourses;
     }
 
     @Override
     public List<Entree> createEntrees() {
-        return Arrays.asList(
-                new WinterEntree("French Onion Soup", 8.99),
-                new WinterEntree("Winter Salad with Roasted Squash", 10.99),
-                new WinterEntree("Baked Brie", 11.99)
-        );
+        List<Entree> entrees = new ArrayList<>();
+        entrees.add(new WinterEntree("French Onion Soup"));
+        entrees.add(new WinterEntree("Winter Salad"));
+        entrees.add(new WinterEntree("Baked Brie"));
+        return entrees;
     }
 
     @Override
     public List<Dessert> createDesserts() {
-        return Arrays.asList(
-                new WinterDessert("Chocolate Lava Cake", 5.99),
-                new WinterDessert("Apple Crumble", 8.99),
-                new WinterDessert("Gingerbread Pudding", 6.99)
-        );
+        List<Dessert> desserts = new ArrayList<>();
+        desserts.add(new WinterDessert("Chocolate Lava Cake"));
+        desserts.add(new WinterDessert("Gingerbread Pudding"));
+        desserts.add(new WinterDessert("Pear Tart"));
+        return desserts;
     }
+
 }

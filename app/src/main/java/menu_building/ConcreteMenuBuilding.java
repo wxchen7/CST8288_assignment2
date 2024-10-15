@@ -3,6 +3,11 @@ package menu_building;
 import menu_factory.*;
 import menus.*;
 
+/**
+ * Concrete class representing a Spring restaurant menu.
+ * This class extends RestaurantMenu and uses a RestaurantMenuFactory to populate its items.
+ */
+
 public class ConcreteMenuBuilding extends MenuBuilding {
 
     @Override

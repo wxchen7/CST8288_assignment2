@@ -5,26 +5,14 @@ import components.base.Entree;
 public class WinterEntree implements Entree {
 
     private final String name;
-    private final double price;
 
-    public WinterEntree(String name, double price) {
+    public WinterEntree(String name) {
         this.name = name;
-        this.price = price;
     }
 
     @Override
     public String getName() {
         return name;
-    }
-
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public String toString() {
-        return name + " ($" + String.format("%.2f", price) + ")";
     }
 
 }

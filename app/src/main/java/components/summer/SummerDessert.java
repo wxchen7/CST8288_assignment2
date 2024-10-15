@@ -5,11 +5,9 @@ import components.base.Dessert;
 public class SummerDessert implements Dessert {
 
     private final String name;
-    private final double price;
 
-    public SummerDessert(String name, double price) {
+    public SummerDessert(String name) {
         this.name = name;
-        this.price = price;
     }
 
     @Override
@@ -17,13 +15,4 @@ public class SummerDessert implements Dessert {
         return name;
     }
 
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public String toString() {
-        return name + " ($" + String.format("%.2f", price) + ")";
-    }
 }
